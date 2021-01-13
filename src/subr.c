@@ -698,7 +698,7 @@ void OP_subrcall(int subr_no, int argnum) {
         break;
       }
 
-#ifndef NOFORN
+#ifdef MAIKO_ENABLE_FOREIGN_FUNCTION_INTERFACE
     /*****************************************/
     /*  foreign-function-call support subrs  */
     /*****************************************/
@@ -767,7 +767,7 @@ void OP_subrcall(int subr_no, int argnum) {
       TopOfStack = smashing_c_fn(args);
       break;
     }
-#endif /* NOFORN */
+#endif /* MAIKO_ENABLE_FOREIGN_FUNCTION_INTERFACE */
 
 #ifdef MNW
     case sb_FILL_IN: {
