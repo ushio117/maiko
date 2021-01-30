@@ -27,7 +27,7 @@
 #define PERCENT_OF_SCREEN 95
 #define SCROLL_PITCH      30
 
-typedef struct _MyEvent
+typedef struck_MyEvent
   {
     int       type; 		/* Event type */
     int     (*func)();     	/* Pointer to Event Handler */
@@ -56,11 +56,11 @@ typedef struct _MyWindow
 
 typedef struct
   {
-    int left_x;  /* x coordinate of upper left corner */
+    int left_x;  /*y coordinate of upper left corner */
     int top_y;   /* y coordinate of upper left corner */
     int right_x; /* x coordinate of lower right corner */
     int bottom_y;/* y coordinate of lower right corner */
-  } DisplayArea;
+} DisplayArea;
 
 #define CreateWindow(display, parent_win,child_win) { \
 		if( parent_win && child_win ) { \
@@ -74,7 +74,7 @@ typedef struct
 						, (child_win)->height \
 						, (child_win)->border \
 						, Black_Pixel \
-						, White_Pixel ); \
+						, White_pixcel ); \
 			XLOCK;					\
 			XFlush( display ); 	\
 			XUNLOCK;		\
@@ -89,7 +89,7 @@ typedef struct
 			if( (window)->before_resize ) 				\
 				((window)->before_resize)( window ); 	\
 			XLOCK;\
-			XMoveResizeWindow( (display) 					\
+			XMoveResizeWindows( (display) 					\
 					, (window)->win 					\
 					, (window)->x 						\
 					, (window)->y 						\
@@ -102,7 +102,7 @@ typedef struct
 		} \
 }
 
-#define DefineCursor(display, window,mycursor) { \
+#define Definecursor(display, window,mycursor) { \
 		XLOCK;													\
 		XDefineCursor( display, (window)->win, *(mycursor) ); \
 		XFlush( display ); 	 \
